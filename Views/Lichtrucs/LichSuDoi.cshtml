@@ -1,0 +1,177 @@
+﻿@model IEnumerable<QuanLyLichTruc.Models.Lichsudoi>
+
+@{
+    ViewData["Title"] = "Quản lý lịch sử đổi lịch";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý lịch trực</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Details" asp-route-id="@ViewData["malich"]"><i>Xem chi tiết lịch trực</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="LichSuDoi" asp-route-id="@ViewData["malich"]"><i>Xem lịch sử đổi lịch</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Tác vụ</h3></div>
+                <div class="p-3" style="background-color: #dfefff" align="center">
+                    <a class="btn my-1" href="#" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;" data-bs-toggle="modal" data-bs-target="#addFormModal">Đổi lịch</a>
+                    <div class="modal fade" id="addFormModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title pt-1 my-0" style="color: #0b8aff;">Đổi lịch cán bộ</h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body p-3 mt-0">
+                                    <form asp-action="ThemLichSu">
+                                        <input type="hidden" name="LichTrucId" value="@ViewData["malich"]" />
+                                        <div class="mb-3" align="left">
+                                            <label for="cahientai" class="form-label" align="left"><b>Chọn ca hiện tại</b></label>
+                                            <select class="form-control mb-2" name="CaHienTai" id="cahientai" required>
+                                                    @foreach (var ct in (List<Catruc>) ViewData["dsct"]) {
+                                                        string hienthi = "Thứ " + (ct.Ngaytruc.Thu + 1) + " - Ngày ";
+                                                        if (ct.Ngaytruc.Ngay < 10) {
+                                                             hienthi = hienthi + "0" + ct.Ngaytruc.Ngay + "/";
+                                                        }
+                                                        else {
+                                                             hienthi = hienthi + ct.Ngaytruc.Ngay + "/";
+                                                        }
+                                                        if (ct.Ngaytruc.Lichtruc.Thang < 10) {
+                                                             hienthi = hienthi + "0" + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                                        }
+                                                        else {
+                                                             hienthi = hienthi + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                                        }
+                                                        hienthi = hienthi + ct.Ngaytruc.Lichtruc.Nam + " - Ca " + ct.SoThuTuCa + " - " + ct.Canbo.HoTen;
+                                                        <option value="@ct.CatrucID">
+                                                            @hienthi
+                                                        </option>
+                                                    }
+                                            </select>
+                                        </div>
+                                        <div class="mb-3" align="left">
+                                            <label for="camuondoi" class="form-label" align="left"><b>Chọn vị trí muốn đổi</b></label>
+                                            <select class="form-control mb-2" name="CaMuonDoi" id="camuondoi" required>
+                                                    @foreach (var ct in (List<Catruc>) ViewData["dsct"]) {
+                                                        string hienthi = "Thứ " + (ct.Ngaytruc.Thu + 1) + " - Ngày ";
+                                                        if (ct.Ngaytruc.Ngay < 10) {
+                                                             hienthi = hienthi + "0" + ct.Ngaytruc.Ngay + "/";
+                                                        }
+                                                        else {
+                                                             hienthi = hienthi + ct.Ngaytruc.Ngay + "/";
+                                                        }
+                                                        if (ct.Ngaytruc.Lichtruc.Thang < 10) {
+                                                             hienthi = hienthi + "0" + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                                        }
+                                                        else {
+                                                             hienthi = hienthi + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                                        }
+                                                        hienthi = hienthi + ct.Ngaytruc.Lichtruc.Nam + " - Ca " + ct.SoThuTuCa + " - " + ct.Canbo.HoTen;
+                                                        <option value="@ct.CatrucID">
+                                                            @hienthi
+                                                        </option>
+                                                    }
+                                            </select>
+                                        </div>
+                                        <div align="center"><button type="submit" class="btn mb-2" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Thao tác đổi</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách lịch sử đổi lịch</h3></div>
+                <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                    <tr style="font-weight: 500;" align="center">
+                        <th style="background-color: #dfefff; color: #0021ac" width="15">STT</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="90">Tên cán bộ</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Ca hiện tại</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="220">Ca muốn đổi</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Lí do</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="80">Trạng thái</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="100">Tác vụ</th>
+                    </tr>
+                    @if (Model != null) {
+                        int stt = 1;
+                        var catruc = new Catruc();
+                        @foreach (var lichsudoi in Model) {
+                            @foreach (var ct in (List<Catruc>)ViewData["dsct"])
+                            {
+                                if (lichsudoi.CamuondoiID == ct.CatrucID)
+                                {
+                                    catruc = ct;
+                                    break;
+                                }
+                            }
+                        @if (catruc.CanboID != null) {
+                        <tr>
+                            <td align="center">@stt</td>
+                            <td>@lichsudoi.NguoiDoi</td>
+                            <td align="center">
+                                @{
+                                    string cahientai = "Ngày ";
+                                    if (lichsudoi.Catruc.Ngaytruc.Ngay < 10) {
+                                        cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    else {
+                                        cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    if (lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang < 10) {
+                                        cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    else {
+                                        cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Nam + " - Ca " + lichsudoi.Catruc.SoThuTuCa;
+                                }
+                                @cahientai
+                            </td>
+                            <td align="center">
+                                @{
+                                    string camuondoi = "Ngày ";
+                                    if (catruc.Ngaytruc.Ngay < 10) {
+                                        camuondoi = camuondoi + "0" + catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    else {
+                                        camuondoi = camuondoi + catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    if (catruc.Ngaytruc.Lichtruc.Thang < 10) {
+                                        camuondoi = camuondoi + "0" + catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    else {
+                                        camuondoi = camuondoi + catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    camuondoi = camuondoi + catruc.Ngaytruc.Lichtruc.Nam + " - Ca " + catruc.SoThuTuCa + " - " + lichsudoi.NguoiDuocYeuCau;
+                                }
+                                @camuondoi
+                            </td>
+                            <td>@lichsudoi.LiDo</td>
+                            <td align="center">
+                                @if (lichsudoi.TrangThai == false) {
+                                    <div class="p-1" style="color: red;">Chờ xác nhận</div>
+                                }
+                                else {
+                                    <div class="p-1" style="color: #2b93ff;">Đã hoàn tất</div>
+                                }
+                            </td>
+                            <td align="center">
+                                @if (lichsudoi.TrangThai == false)
+                                {
+                                    <a class="btn" asp-action="DuyetYeuCau" asp-route-id="@ViewData["malich"]" asp-route-malsd="@lichsudoi.LichsudoiID" style="background-color: #dcfaff; color: #0b8aff; border: #0561b7 solid 1px;">Duyệt yêu cầu</a>
+                                }
+                            </td>
+                        </tr>
+                        }
+                        stt = stt + 1;
+                    }
+                    }
+                </table>
+                <div class="row mt-5 my-5"></div>
+            </div>
+        </div>
+    </div>

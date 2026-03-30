@@ -1,0 +1,150 @@
+﻿@model IEnumerable<QuanLyLichTruc.Models.Lichtruc>
+
+@{
+    ViewData["Title"] = "Quản lý lịch trực";
+}
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý lịch trực</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Tác vụ</h3></div>
+                <div class="p-3" style="background-color: #dfefff" align="center">
+                    <a class="btn @((bool) ViewData["kiemtra"]==false?"":"") mt-1 mb-2" href="javascript:void(0)" onclick="hideForm()" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px; width: 200px;">Thêm mới</a>
+                    <a class="btn mt-1 mb-1" href="#bangdoilich" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px; width: 200px;">Xem bảng đổi lịch</a>
+                </div>
+
+                <div id="formTaoLich" style="display: none;">
+                    <div class="p-3 mt-4" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Nhập ghi chú lịch</h3></div>
+                    <div class="p-3" style="background-color: #dfefff" align="center">
+                        <form asp-action="Create">
+                            <textarea class="form-control mb-3" rows="4" name="GhiChu" required></textarea>
+                            <button class="btn mb-1" type="submit" align="center" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Tạo</button>
+                        </form>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Lọc lịch trực</h3></div>
+                <div class="p-2" style="background-color: #dfefff" align="center">
+                    <div class="my-2 rounded-2" style="background-color: white; border: #0561b7 solid 1px; width: 100px;"><a asp-action="Index" asp-route-nam="2025" class="btn" style="color: #0b8aff;">2025</a></div>
+                    <div class="my-2 rounded-2" style="background-color: white; border: #0561b7 solid 1px; width: 100px;"><a asp-action="Index" asp-route-nam="2026" class="btn" style="color: #0b8aff;">2026</a></div>
+                    <div class="my-2 rounded-2" style="background-color: white; border: #0561b7 solid 1px; width: 100px;"><a asp-action="Index" asp-route-nam="2027" class="btn" style="color: #0b8aff;">2027</a></div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-8">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách lịch trực thư viện</h3></div>
+                <div class="p-3" style="background-color: #6ab3ff">
+                @if (Model != null) {
+                    foreach (var lich in Model) {
+                    <div class="p-3 rounded-2 mt-2 mb-4" style="background-color: white;  box-shadow: #39adff 5px 5px 5px;">
+                        <p class="my-0" style="color: #0071d9; font-weight: 500;">Lịch trực tháng @(lich.Thang<10?"0"+lich.Thang:lich.Thang) năm @lich.Nam &nbsp;&nbsp;<i style="font-size: 10pt; color: #6b7e90;">(@lich.CreatedAt)</i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="text-danger">@(lich.TrangThai==false?"<Trạng thái: Đã khóa chỉnh sửa>":"")</i></p>
+                        <hr class="mb-2 mt-1"/>
+                        <div class="row">
+                            <div class="col-lg-8">@lich.GhiChu</div>
+                            <div class="col-lg-4" align="right">
+                                <a class="btn my-2" asp-action="Details" asp-route-id="@lich.LichtrucID" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Xem chi tiết</a>&nbsp;&nbsp;
+                                @if (lich.TrangThai == true) {
+                                    <a class="btn btn-danger" asp-action="CapNhatTrangThai" asp-route-id="@lich.LichtrucID">Khóa lịch</a>
+                                }
+                                else {
+                                    <a class="btn btn-primary" asp-action="CapNhatTrangThai" asp-route-id="@lich.LichtrucID">Mở khóa</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    }
+                }
+                </div>
+                <a id="bangdoilich"></a>
+                <div class="mt-5 p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Bảng lịch sử đổi lịch</h3></div>
+                <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                    <tr style="font-weight: 500;" align="center">
+                        <th style="background-color: #dfefff; color: #0021ac" width="10">STT</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="90">Tên cán bộ</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="180">Ca hiện tại</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="260">Ca muốn đổi</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="100">Lí do</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="80">Trạng thái</th>
+                    </tr>
+                    @if ((int) ViewData["count"] != 0) {
+                        int stt = 1;
+                        foreach (var lichsudoi in (List<Lichsudoi>) ViewData["dslsd"]) {
+                            var cahientai = "Ngày ";
+                            if (lichsudoi.Catruc.Ngaytruc.Ngay < 10) {
+                                cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                            }
+                            else {
+                                cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                            }
+                            if (lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang < 10) {
+                                cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                            }
+                            else {
+                                cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                            }
+                            cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Nam + " - Ca " + lichsudoi.Catruc.SoThuTuCa;
+                        <tr>
+                            <td align="center">@stt</td>
+                            <td>@lichsudoi.NguoiDoi</td>
+                            <td align="center">
+                                @cahientai
+                            </td>
+                            <td align="center">
+                                @foreach (var ct in (List<Catruc>) ViewData["dsct"]) {
+                                    var camuondoi = "Ngày ";
+                                    if (lichsudoi.CamuondoiID == ct.CatrucID) {
+                                        if (ct.Ngaytruc.Ngay < 10) {
+                                            camuondoi = camuondoi + "0" + ct.Ngaytruc.Ngay + "/";
+                                        }
+                                        else {
+                                            camuondoi = camuondoi + ct.Ngaytruc.Ngay + "/";
+                                        }
+                                        if (ct.Ngaytruc.Lichtruc.Thang < 10) {
+                                            camuondoi = camuondoi + "0" + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                        }
+                                        else {
+                                            camuondoi = camuondoi + ct.Ngaytruc.Lichtruc.Thang + "/";
+                                        }
+                                        camuondoi = camuondoi + ct.Ngaytruc.Lichtruc.Nam + " - Ca " + ct.SoThuTuCa + " - " + lichsudoi.NguoiDuocYeuCau;
+                                        @camuondoi
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        continue;
+                                    }
+                                }
+                            </td>
+                            <td>@lichsudoi.LiDo</td>
+                            <td align="center">
+                                @if (lichsudoi.TrangThai == false)
+                                {
+                                    <div class="p-1" style="color: red;">Chờ xác nhận</div>
+                                }
+                                else
+                                {
+                                    <div class="p-1" style="color: #2b93ff;">Đã hoàn tất</div>
+                                }
+                            </td>
+                        </tr>
+                        stt = stt + 1;
+                        }
+                    }
+                    else {
+                        <tr>
+                            <td colspan="6" align="center">
+                                <i class="p-2 text-muted">Chưa có lịch sử đổi lịch của tháng hiện hành!</i>
+                            </td>
+                        </tr>
+                    }
+                </table>
+                <div class="row mt-5 my-5"></div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>

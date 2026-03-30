@@ -1,0 +1,43 @@
+﻿@model QuanLyLichTruc.Models.Catruc
+
+@{
+    ViewData["Title"] = "Đổi lịch cán bộ";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý lịch trực</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Details" asp-route-id="@Model.Ngaytruc.LichtrucID"><i>Xem chi tiết lịch trực</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="DoiLich" asp-route-id="@Model.CatrucID"><i>Đổi cán bộ trực</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Đổi cán bộ trực</h3></div>
+                <div class="p-3 rounded-3 mt-3" style="background-color: #9ed0ff;">
+                    <form asp-action="DoiLich">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" value="@Model.Ngaytruc.LichtrucID" name="id" />
+                        <input asp-for="CatrucID" type="hidden"/>
+                        <div class="mb-3">
+                            <label asp-for="CanboID" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Chọn họ tên cán bộ:</b></label>
+                            <select asp-for="CanboID" class="form-select">
+                                @foreach (var cb in (List<Canbo>) ViewData["dscb"]) {
+                                    <option value="@cb.CanboID">@cb.HoTen</option>
+                                }
+                            </select>
+                            <span asp-validation-for="CanboID" class="text-danger"></span>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Cập nhật</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row mt-5 my-5"></div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>

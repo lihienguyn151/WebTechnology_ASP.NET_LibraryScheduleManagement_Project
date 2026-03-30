@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (ViewData["canbo"] != null)
+{
+        <ul class="navbar-nav justify-content-end">
+            <li class="nav-item dropdown">
+                <a class="btn rounded-5 dropdown-toggle" data-bs-toggle="dropdown" href="#" style="background-color: white; border: #0561b7 solid 1px; color: #0b8aff; font-weight: 500;">&nbsp;&nbsp;&nbsp;@(ViewBag.canbo.HoTen)&nbsp;&nbsp;&nbsp;</a>
+                <ul class="dropdown-menu" align="left" style="border: #0561b7 solid 1px;">
+                    <li><a class="dropdown-item" asp-controller="Home" asp-action="UserInformation" style="background-color: white; color: #0b8aff; font-weight: 700; font-size: 11pt;">Cập nhật thông tin</a></li>
+                    <li><a class="dropdown-item" asp-controller="Home" asp-action="ScheduleConfirm" style="background-color: white; color: #0b8aff; font-weight: 700; font-size: 11pt;">Xác nhận ca trực</a></li>
+                    <li><a class="dropdown-item" asp-controller="Home" asp-action="ResponseChange" style="background-color: white; color: #0b8aff; font-weight: 700; font-size: 11pt;">Phản hồi yêu cầu đổi lịch</a></li>
+                    <li><a class="dropdown-item" asp-controller="Home" asp-action="SetBusyList" style="background-color: white; color: #0b8aff; font-weight: 700; font-size: 11pt;">Quản lý lịch bận</a></li>
+                </ul>
+            </li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a class="btn btn-danger" asp-controller="Home" asp-action="Logout">Đăng xuất</a>
+            </li>
+        </ul>
+}
+else
+{
+    <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+            <a class="btn" asp-controller="Home" asp-action="Login" style="background-color: white; border: #0561b7 solid 1px; color: #0b8aff; font-weight: 500;">Đăng nhập</a>
+        </li>
+        &nbsp; &nbsp; &nbsp;
+        <li class="nav-item">
+            <a class="btn" asp-controller="Home" asp-action="Register" style="background-color: #ff3b5f; color: #ffffff; font-weight: 500;">Đăng ký</a>
+        </li>&nbsp; &nbsp; &nbsp;
+    </ul>
+}

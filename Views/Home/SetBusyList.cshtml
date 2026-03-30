@@ -1,0 +1,90 @@
+﻿@model IEnumerable<QuanLyLichTruc.Models.Lichban>
+
+@{
+    ViewData["Title"] = "Quản lý lịch bận";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="SetBusyList"><i>Nhập lịch bận tháng mới</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Tác vụ</h3></div>
+                <div class="p-3" style="background-color: #dfefff" align="center">
+                    <a class="btn my-1" href="#" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;" data-bs-toggle="modal" data-bs-target="#addFormModal">Nhập lịch bận</a>
+                    <div class="modal fade" id="addFormModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title pt-1 my-0" style="color: #0b8aff;">Nhập thông tin lịch bận</h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body p-3 mt-0">
+                                    <form asp-action="SetBusyList">
+                                        <input type="hidden" value="@ViewBag.canbo.CanboID" name="CanboID"/>
+                                        <div class="mb-3" align="left">
+                                            <label for="ngayban" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Ngày bận:</b></label>
+                                            <input type="date" class="form-control" id="ngayban" name="NgayBan" required/>
+                                        </div>
+                                        <div class="mb-3" align="left">
+                                            <label for="caban" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Buổi bận:</b></label>
+                                            <select class="form-select" id="caban" name="CaBan">
+                                                <option value="1">Sáng</option>
+                                                <option value="2">Chiều</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3" align="left">
+                                            <label for="lido" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Lí do:</b></label>
+                                            <textarea class="form-control mb-3" rows="4" id="lido" name="LiDo" required></textarea>
+                                        </div>
+                                        <div align="center"><button type="submit" class="btn mb-2" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Thêm</button></div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách lịch sử đổi lịch</h3></div>
+                <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                    <tr style="font-weight: 500;" align="center">
+                        <th style="background-color: #dfefff; color: #0021ac" width="20">STT</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Ngày bận</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="100">Buổi</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="250">Lí do</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="100">Thao tác</th>
+                    </tr>
+                    @if (Model != null) {
+                        int stt = 1;
+                        @foreach (var lichban in Model) {
+                        <tr>
+                            <td align="center">@stt</td>
+                            <td align="center">
+                                <div style="color: @(lichban.CaBan==1?"#2b93ff":"#ff5400");">@lichban.NgayBan.ToShortDateString()</div>
+                            </td>
+                            <td align="center">
+                                @if (lichban.CaBan == 1)
+                                {
+                                    <div class="p-1" style="color: #2b93ff;">Sáng</div>
+                                }
+                                else
+                                {
+                                    <div class="p-1" style="color: #ff5400;">Chiều</div>
+                                }
+                            </td>
+                            <td>@lichban.LiDo</td>
+                            <td align="center">
+                                <a class="btn" asp-action="Delete" asp-route-id="@lichban.LichbanID" style="background-color: #ff154d; color: white;">Xóa lịch</a>
+                            </td>
+                        </tr>
+                        stt = stt + 1;
+                        }
+                    }
+                </table>
+                <div class="row mt-5 my-5"></div>
+            </div>
+        </div>
+    </div>

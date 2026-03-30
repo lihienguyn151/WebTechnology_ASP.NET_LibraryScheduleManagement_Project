@@ -1,0 +1,112 @@
+﻿@model QuanLyLichTruc.Models.Canbo
+
+@{
+    ViewData["Title"] = "Xem lịch trực cán bộ";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý cán bộ</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="ScheduleView" asp-route-kt="0" asp-route-id="@Model.CanboID"><i>Danh sách ca trực</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Thông tin cán bộ</h3></div>
+                <div class="p-3" style="background-color: #dfefff">
+                    <div class="row mb-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Mã số cán bộ:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@Model.MaSo</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Họ tên:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@Model.HoTen</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Số điện thoại:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@Model.SoDienThoai</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Email:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@Model.Email</div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+
+                <p class="my-2">&nbsp;</p>
+
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Tác vụ</h3></div>
+                <div class="p-3" style="background-color: #dfefff" align="center"><a class="btn" asp-action="ScheduleView" asp-route-id="@Model.CanboID" asp-route-kt="1" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Hiển thị toàn bộ</a></div>
+            </div>
+            <div class="col-lg-9">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách ca trực</h3></div>
+                <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                    <tr style="font-weight: 500;" align="center">
+                        <th style="background-color: #dfefff; color: #0021ac" width="30">STT</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Ngày trực</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="60">Buổi</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Trạng thái</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Điểm danh</th>
+                    </tr>
+                    @if (ViewData["dsct_cb"] != null) {
+                        int stt = 1;
+                        foreach (var ct in (List<Catruc>) ViewData["dsct_cb"]) {
+                            var ngaytruc = "";
+                            if (ct.Ngaytruc.Ngay < 10) {
+                                 ngaytruc = "0" + ct.Ngaytruc.Ngay + "/";
+                            }
+                            else
+                                 ngaytruc = ct.Ngaytruc.Ngay + "/";
+                            if (ct.Ngaytruc.Lichtruc.Thang < 10) {
+                                 ngaytruc = ngaytruc + "0" + ct.Ngaytruc.Lichtruc.Thang + "/";
+                            }
+                            else
+                                 ngaytruc = ngaytruc + ct.Ngaytruc.Lichtruc.Thang + "/";
+                            ngaytruc = ngaytruc + ct.Ngaytruc.Lichtruc.Nam;
+                        <tr>
+                            <td align="center">@stt</td>
+                            <td align="center">
+                                <div style="color: @(ct.SoThuTuCa==1?"#2b93ff":"#ff5400");">@ngaytruc</div>
+                            </td>
+                            <td align="center">
+                                @if (ct.SoThuTuCa == 1) {
+                                    <div class="p-1" style="color: #2b93ff;">Sáng</div>
+                                }
+                                else {
+                                    <div class="p-1" style="color: #ff5400;">Chiều</div>
+                                }
+                            </td>
+                            <td align="center">
+                                @if (ct.TrangThai == 0) {
+                                    <div class="p-1" style="color: red;">Đã khóa</div>
+                                }
+                                else if (ct.TrangThai == 1) {
+                                    <div class="p-1">Đã xác nhận</div>
+                                }
+                                else {
+                                    <div class="p-1" style="color: red;">Chưa xác nhận</div>
+                                }
+                            </td>
+                            <td align="center">
+                                @if (ct.DiemDanh == false)
+                                {
+                                    <div class="p-1" style="color: red;">Chưa điểm danh</div>
+                                }
+                                else
+                                {
+                                    <div class="p-1">Đã điểm danh</div>
+                                }
+                            </td>
+                        </tr>
+                        stt = stt + 1;
+                        }
+                    }
+                </table>
+                <div class="row mt-5 my-5"></div>
+            </div>
+        </div>
+    </div>

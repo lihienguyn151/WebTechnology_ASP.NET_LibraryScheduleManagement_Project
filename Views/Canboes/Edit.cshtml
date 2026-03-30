@@ -1,0 +1,69 @@
+﻿@model QuanLyLichTruc.Models.Canbo
+
+@{
+    ViewData["Title"] = "Cập nhật cán bộ";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý cán bộ</i></a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" href="#">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</a>
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Edit" asp-route-id="@Model.CanboID"><i>Cập nhật cán bộ</i></a>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Cập nhật thông tin cán bộ</h3></div>
+            <div class="p-3 rounded-3 mt-3" style="background-color: #9ed0ff;">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="CanboID" />
+                    <div class="mb-3">
+                        <label asp-for="MaSo" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Mã số:</b></label>
+                        <input asp-for="MaSo" type="text" class="form-control" placeholder="Nhập vào mã số" required />
+                        <span asp-validation-for="MaSo" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="HoTen" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Họ tên:</b></label>
+                        <input asp-for="HoTen" type="text" class="form-control" placeholder="Nhập vào họ tên" required />
+                        <span asp-validation-for="HoTen" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ChucVu" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Chức vụ:</b></label>
+                        <input asp-for="ChucVu" type="text" class="form-control" placeholder="Nhập vào chức vụ" required />
+                        <span asp-validation-for="ChucVu" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="SoDienThoai" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Số điện thoại:</b></label>
+                        <input asp-for="SoDienThoai" type="text" class="form-control" placeholder="Nhập số điện thoại" required />
+                        <span asp-validation-for="SoDienThoai" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Email:</b></label>
+                        <input asp-for="Email" type="email" class="form-control" placeholder="Nhập email" required />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="QuyenHan" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Quyền hạn tài khoản:</b></label>
+                        <select asp-for="QuyenHan" class="form-select">
+                            <option value="0">Quản trị viên</option>
+                            <option value="1">Quản lý</option>
+                            <option value="2">Người dùng</option>
+                        </select>
+                        <span asp-validation-for="QuyenHan" class="text-danger"></span>
+                    </div>
+                    <div align="center">
+                        <button type="submit" class="btn" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Thao tác</button>
+                    </div>
+                </form>
+            </div>
+            <div class="row mt-5 my-5"></div>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

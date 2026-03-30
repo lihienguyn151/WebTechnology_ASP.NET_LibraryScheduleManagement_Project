@@ -1,0 +1,35 @@
+﻿@model QuanLyLichTruc.Models.Lichtruc
+
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Danh mục nội dung</h3></div>
+            <div class="p-2" style="background-color: #6ab3ff" align="center">
+                <div class="my-2 rounded-3" style="background-color: white; border: #0561b7 solid 1px; width: 200px;"><a href="#lichtrucmoi" class="btn" style="color: #0b8aff;">Lịch trực tháng mới</a></div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;"><a id="lichtrucmoi"></a>Lịch trực tháng mới</h3></div>
+            <div class="p-3" style="background-color: #6ab3ff">
+                @if (Model != null)
+                {
+                    <div class="p-3 rounded-2 mt-2 mb-4" style="background-color: white; box-shadow: #39adff 5px 5px 5px;">
+                        <p class="my-0" style="color: #0071d9; font-weight: 500;">Lịch trực tháng @(Model.Thang<10?"0"+Model.Thang:Model.Thang) năm @Model.Nam &nbsp;&nbsp;<i style="font-size: 10pt; color: #6b7e90;">(@Model.CreatedAt)</i></p>
+                        <hr class="mb-2 mt-1"/>
+                        <div class="row">
+                            <div class="col-lg-9">@Model.GhiChu</div>
+                            <div class="col-lg-3" align="right">
+                                <a class="btn my-2" asp-action="Details" asp-route-id="@Model.LichtrucID" style="background-color: #dcfaff; color: #0b8aff; border: #0561b7 solid 1px;">Xem chi tiết</a>&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<QuanLyLichTruc.Models.Lichsudoi>
+
+@{
+    ViewData["Title"] = "Phản hồi yêu cầu thay đổi";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="ResponseChange"><i>Quản lý yêu cầu đổi lịch</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Tác vụ</h3></div>
+                <div class="p-3" style="background-color: #dfefff" align="center"><a class="btn" asp-action="ResponseChange" asp-route-full="1" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Hiển thị toàn bộ</a></div>
+            </div>
+            <div class="col-lg-10">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách yêu cầu đổi lịch</h3></div>
+                <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                    <tr style="font-weight: 500;" align="center">
+                        <th style="background-color: #dfefff; color: #0021ac" width="15">STT</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="90">Tên cán bộ</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Ca hiện tại</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="220">Ca muốn đổi</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="150">Lí do</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="120">Trạng thái</th>
+                        <th style="background-color: #dfefff; color: #0021ac" width="100">Tác vụ</th>
+                    </tr>
+                    @if (Model != null) {
+                        int stt = 1;
+                        @foreach (var lichsudoi in Model) {
+                        <tr>
+                            <td align="center">@stt</td>
+                            <td>@lichsudoi.NguoiDoi</td>
+                            <td align="center">
+                                @{
+                                    string cahientai = "Ngày ";
+                                    if (lichsudoi.Catruc.Ngaytruc.Ngay < 10) {
+                                        cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    else {
+                                        cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Ngay + "/";
+                                    }
+                                    if (lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang < 10) {
+                                        cahientai = cahientai + "0" + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    else {
+                                        cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                    }
+                                    cahientai = cahientai + lichsudoi.Catruc.Ngaytruc.Lichtruc.Nam + " - Ca " + lichsudoi.Catruc.SoThuTuCa;
+                                }
+                                @cahientai
+                            </td>
+                            <td align="center">
+                                @{ string camuondoi = "Ngày "; }
+                                @if (ViewData["dsct"] != null) {
+                                    @foreach (var catruc in (List<Catruc>) ViewData["dsct"]) {
+                                        if (catruc.CatrucID == lichsudoi.CamuondoiID) {
+                                            if (catruc.Ngaytruc.Ngay < 10)
+                                            {
+                                                camuondoi = camuondoi + "0" + catruc.Ngaytruc.Ngay + "/";
+                                            }
+                                            else {
+                                                camuondoi = camuondoi + catruc.Ngaytruc.Ngay + "/";
+                                            }
+                                            if (catruc.Ngaytruc.Lichtruc.Thang < 10) {
+                                                camuondoi = camuondoi + "0" + catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                            }
+                                            else {
+                                                camuondoi = camuondoi + catruc.Ngaytruc.Lichtruc.Thang + "/";
+                                            }
+                                            camuondoi = camuondoi + catruc.Ngaytruc.Lichtruc.Nam + " - Ca " + catruc.SoThuTuCa + " - " + lichsudoi.NguoiDuocYeuCau;
+                                            break;
+                                        }
+                                    }
+                                }
+                                @camuondoi
+                            </td>
+                            <td>@lichsudoi.LiDo</td>
+                            <td align="center">
+                                @if (lichsudoi.TrangThai == false) {
+                                    <div class="p-1" style="color: red;">Chờ xác nhận</div>
+                                }
+                                else {
+                                    <div class="p-1" style="color: #2b93ff;">Đã hoàn tất</div>
+                                }
+                            </td>
+                            <td align="center">
+                                @if (lichsudoi.TrangThai == false)
+                                {
+                                    <a class="btn" asp-action="Accept" asp-route-id="@lichsudoi.LichsudoiID" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Chấp nhận</a>
+                                }
+                            </td>
+                        </tr>
+                        stt = stt + 1;
+                        }
+                    }
+                </table>
+                <div class="row mt-5 my-5"></div>
+            </div>
+        </div>
+    </div>

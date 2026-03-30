@@ -1,0 +1,68 @@
+﻿@model IEnumerable<QuanLyLichTruc.Models.Canbo>
+
+@{
+    ViewData["Title"] = "Quản lý cán bộ";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="Index"><i>Quản lý cán bộ</i></a>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Thêm cán bộ mới</h3></div>
+            <div class="p-3" style="background-color: #dfefff" align="center"><a class="btn" asp-action="Create" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Thêm mới</a></div>
+        </div>
+        <div class="col-lg-10">
+            <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Danh sách cán bộ thư viện</h3></div>
+            <table class="table table-bordered table-hover" style="vertical-align: middle;">
+                <tr style="font-weight: 500;" align="center">
+                    <th style="background-color: #dfefff; color: #0021ac" width="30">Mã số</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="180">Họ tên cán bộ</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="150">Chức vụ</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="80">Số điện thoại</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="180">Email</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="70">Quyền hạn</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="100">Trạng thái tài khoản</th>
+                    <th style="background-color: #dfefff; color: #0021ac" width="390">Tác vụ</th>
+                </tr>
+                @foreach (var cb in Model) {
+                <tr>
+                    <td align="center">@cb.MaSo</td>
+                    <td>@cb.HoTen</td>
+                    <td>@cb.ChucVu</td>
+                    <td align="center">@cb.SoDienThoai</td>
+                    <td>@cb.Email</td>
+                    <td align="center">
+                        @if (cb.QuyenHan == 0) {
+                            <div style="color: #0021ac;">Quản trị viên</div>
+                        }
+                        else if (cb.QuyenHan == 1) {
+                            <div style="color: #2b93ff;">Quản lý</div>
+                        }
+                        else {
+                            <div>Người dùng</div>
+                        }
+                    </td>
+                    <td align="center">
+                        @if (cb.TrangThai == true)
+                        {
+                            <div>Đang hoạt động</div>
+                        }
+                        else {
+                            <div style="color: red;">Đã khóa</div>
+                        }
+                    </td>
+                    <td align="center">
+                        <a class="btn" asp-action="ScheduleView" asp-route-id="@cb.CanboID" asp-route-kt="0" style="background-color: #dcfaff; color: #0b8aff; border: #0561b7 solid 1px;">Xem lịch trực</a>
+                        <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@cb.CanboID">Cập nhật</a>
+                        <a class="btn btn-outline-danger" asp-action="VoHieuHoa" asp-route-id="@cb.CanboID">Vô hiệu hóa</a>
+                    </td>
+                </tr>
+                }
+            </table>
+        </div>
+    </div>
+    <div class="row mt-5 my-5"></div>
+</div>

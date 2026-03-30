@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Thông tin cá nhân";
+}
+
+<div class="mt-2 my-2 ms-3">
+    <a class="text-decoration-none" style="font-size: 10pt; font-weight: 500" asp-action="UserInformation"><i>Cập nhật thông tin người dùng</i></a>
+</div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="my-0" align="center" style="color: #0b8aff;">Thông tin tài khoản người dùng</h3></div>
+                <div class="p-3" style="background-color: #dfefff">
+                    <div class="row mb-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Mã số cán bộ:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@ViewBag.canbo.MaSo</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Họ tên:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@ViewBag.canbo.HoTen</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Chức vụ:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@ViewBag.canbo.ChucVu</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Số điện thoại:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@ViewBag.canbo.SoDienThoai</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Email:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">@ViewBag.canbo.Email</div>
+                        <div class="col-1"></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-5 ms-2" style="font-size: 12pt;">Quyền hạn:</div>
+                        <div class="col-6" style="font-weight: 500; font-size: 12pt; color: #0021ac">
+                            @{ string quyen = ""; }
+                            @if (ViewBag.canbo.QuyenHan == 0) {
+                                quyen = "Quản trị viên";
+                            }
+                            else if (ViewBag.canbo.QuyenHan == 1) {
+                                quyen = "Quản lý";
+                            }
+                            else {
+                                quyen = "Nhân viên";
+                            }
+                            @quyen
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-3" style="background-color: #dcfaff;"><h3 class="pt-1 my-0" align="center" style="color: #0b8aff;">Cập nhật thông tin</h3></div>
+                <div class="p-3 rounded-3 mt-3" style="background-color: #9ed0ff">
+                    <form asp-action="UserInformation">
+                        <input type="hidden" value="@ViewBag.canbo.CanboID" name="CanboID"/>
+                        <div class="mb-3">
+                            <label for="email" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Email:</b></label>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập email" name="Email" value="@ViewBag.canbo.Email" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="chucvu" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Chức vụ:</b></label>
+                            <input type="text" class="form-control" id="chucvu" placeholder="Nhập vào chức vụ" name="ChucVu" value="@ViewBag.canbo.ChucVu" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sodienthoai" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Số điện thoại:</b></label>
+                            <input type="text" class="form-control" id="sodienthoai" placeholder="Nhập số điện thoại" name="SoDienThoai" value="@ViewBag.canbo.SoDienThoai" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Mật khẩu:</b></label>
+                            <input type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" name="MatKhau" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmation" class="form-label"><b style="font-family: Verdana; font-size: 11pt;">Xác nhận mật khẩu:</b></label>
+                            <input type="password" class="form-control" id="password_confirmation" placeholder="Xác nhận mật khẩu" name="NhapLaiMatKhau" required/>
+                        </div>
+                        <div align="center">
+                            <button type="submit" class="btn" style="background-color: white; color: #0b8aff; border: #0561b7 solid 1px;">Gửi yêu cầu</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="row mt-5 my-5"></div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
