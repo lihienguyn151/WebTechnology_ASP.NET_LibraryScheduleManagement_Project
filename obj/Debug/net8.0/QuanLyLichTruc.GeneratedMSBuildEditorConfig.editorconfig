@@ -1,0 +1,217 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = QuanLyLichTruc
+build_property.RootNamespace = QuanLyLichTruc
+build_property.ProjectDir = E:\Thuc Hanh - Cong Nghe Web ASP.NET\DoAn_Project\QuanLyLichTruc\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\Thuc Hanh - Cong Nghe Web ASP.NET\DoAn_Project\QuanLyLichTruc
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Canboes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYm9lc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Canboes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYm9lc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Canboes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYm9lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Canboes/ScheduleView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FuYm9lc1xTY2hlZHVsZVZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Catrucs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0cnVjc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Catrucs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0cnVjc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Catrucs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0cnVjc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Catrucs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0cnVjc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Catrucs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0cnVjc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/ResponseChange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZXNwb25zZUNoYW5nZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/ScheduleConfirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTY2hlZHVsZUNvbmZpcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/SetBusyList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZXRCdXN5TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Home/UserInformation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VySW5mb3JtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichbans/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaGJhbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichsudois/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHN1ZG9pc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichsudois/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHN1ZG9pc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichsudois/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHN1ZG9pc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichsudois/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHN1ZG9pc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichsudois/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHN1ZG9pc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/DoiLich.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXERvaUxpY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Lichtrucs/LichSuDoi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGljaHRydWNzXExpY2hTdURvaS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Ngaytrucs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdheXRydWNzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Ngaytrucs/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdheXRydWNzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Ngaytrucs/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdheXRydWNzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Ngaytrucs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdheXRydWNzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Ngaytrucs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmdheXRydWNzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Xepliches/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVwbGljaGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Xepliches/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVwbGljaGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Xepliches/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVwbGljaGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Xepliches/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVwbGljaGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Xepliches/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcWGVwbGljaGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/Thuc Hanh - Cong Nghe Web ASP.NET/DoAn_Project/QuanLyLichTruc/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-3495vp77kp
